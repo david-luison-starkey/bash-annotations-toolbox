@@ -4,12 +4,16 @@
 import interfaces/interface.bash
 
 @interface VARIABLE PRE
+# Ensures annotated array may only ever contain unique values.
+#
+# Parameters: None
 unique() {
     # shellcheck disable=SC2154
     local -n target="${annotated_variable}"
+    local argument_type="$(declare -p "${!target}" 2>/dev/null)"
 
     # @unique only targets arrays
-    if ! [[ $(declare -p "${!target}" 2>/dev/null) =~ "-a" ]]; then
+    if ! [[ "${argument_type%%\=*}" =~ "-a" ]]; then
         return 1
     fi
 

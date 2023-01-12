@@ -4,6 +4,13 @@
 import interfaces/interface.bash
 
 @interface VARIABLE PREPOST
+# Function that prints a symbol for the length of the terminal before and after
+# a variable is called.
+#
+# Parameter 1: Symbol colour (default value: green)
+#
+# Parameter 2: Symbol that will be used to frame an annotated variable's output
+# (default value: "-")
 variable_lines() {
     # Default symbol colour is green
     local colour="${1:-green}"

@@ -4,6 +4,13 @@
 import interfaces/interface.bash
 
 @interface FUNCTION PREPOST
+# Function that prints a symbol for the length of the terminal before and after
+# a function's execution (and relevant stdout/stderr terminal output)
+#
+# Parameter 1: Symbol colour (default value: green)
+#
+# Parameter 2: Symbol that will be used to frame an annotated function's stdout/stderr output
+# (default value: "-")
 function_lines() {
     # Default symbol colour is green
     local colour="${1:-green}"

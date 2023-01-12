@@ -4,7 +4,7 @@
 import interfaces/interface.bash
 
 @interface FUNCTION PREPOST
-# Output function runtime in seconds
+# Prints annotated function's runtime in seconds
 #
 # Parameters: None
 timer() {
@@ -15,6 +15,7 @@ timer() {
         bash_annotations_timer_start=$(date -u +%s.%N)
     elif [[ -n "${bash_annotations_timer_start}" ]]; then
         bash_annotations_timer_end=$(date -u +%s.%N)
+        # shellcheck disable=SC2154
         printf "%s() runtime: " "${annotated_function}"
         # Return value as float: https://unix.stackexchange.com/questions/314365/get-elapsed-time-in-bash
         printf "%0.3f seconds\n" "$(bc -q <<<"scale=3; $bash_annotations_timer_end - $bash_annotations_timer_start")"
