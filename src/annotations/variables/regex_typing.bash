@@ -20,8 +20,8 @@ regex_typing() {
 
     # Implement custom logging and error handling here
     if [[ "${annotated_variable_value}" =~ ${pattern} ]]; then
-        exit 0
+        return 0
     else
-        exit 1
+        return 1
     fi
 }
