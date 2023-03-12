@@ -27,11 +27,12 @@ import interfaces/interface.bash
 put() {
     local -n nameref_associative_array="${1}"
     local argument_type=$(declare -p "${!nameref_associative_array}" 2>/dev/null)
+    local variable="${annotated_variable}"
 
     # @put only accepts associative arrays
     if ! [[ "${argument_type%%\=*}" =~ "-A" ]]; then
         return 1
     fi
     # shellcheck disable=SC2154
-    nameref_associative_array["${annotated_variable}"]+="${!annotated_variable}"
+    nameref_associative_array["${variable}"]+="${annotated_variable_value}"
 }

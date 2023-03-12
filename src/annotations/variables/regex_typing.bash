@@ -17,9 +17,9 @@ import interfaces/interface.bash
 regex_typing() {
     local pattern="${1}"
     # shellcheck disable=SC2154
-    local target="${annotated_variable}"
 
-    if [[ "${!target}" =~ ${pattern} ]]; then
+    # Implement custom logging and error handling here
+    if [[ "${annotated_variable_value}" =~ ${pattern} ]]; then
         exit 0
     else
         exit 1
